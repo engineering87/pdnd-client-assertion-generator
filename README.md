@@ -17,11 +17,30 @@ To obtain a valid voucher, you must first upload at least one public key to an i
 To properly set up and use the Client Assertion Generator in your ASP.NET Core application, follow these steps:
 
 1. Configure Client Assertion Settings:
+
+  ```xml
+  "ClientAssertionConfig": {
+    "ServerUrl": "",
+    "KeyId": "",
+    "Algorithm": "",
+    "Type": "",
+    "ClientId": "",
+    "Issuer": "",
+    "Subject": "",
+    "Audience": "",
+    "PurposeId": "",
+    "KeyPath": "",
+    "Duration": ""
+  },
+  ```
+
+read the configuration:
+
   ```csharp
   builder.Services.Configure<ClientAssertionConfig>(configuration.GetSection("ClientAssertionConfig"));
   ```
 
-2. Register Services::
+2. Register Services:
   ```csharp
 builder.Services.AddScoped<ClientAssertionConfig>();
 builder.Services.AddScoped<IOAuth2Service, OAuth2Service>();
@@ -30,7 +49,7 @@ builder.Services.AddScoped<IClientAssertionGenerator, ClientAssertionGeneratorSe
 
 Then you can use `ClientAssertionGeneratorService`, which provides the following methods:
 - `GetClientAssertionAsync`
-- `GetToken`
+- `GetToken(clientAssertion)`
 
 ## How to Contribute
 Thank you for considering to help out with the source code!
