@@ -7,6 +7,17 @@
 
 .NET implementation of **OAuth2** authentication for **PDND** service with client assertion generation.
 
+## Contents
+- [PDND](#pdnd)
+- [Voucher](#voucher)
+- [Requesting a Voucher](#requesting-a-voucher)
+- [How to Use the Client Assertion Generator](#how-to-use-the-client-assertion-generator)
+- [Licensee](#licensee)
+- [Contact](#contact)
+
+## PDND
+The **Piattaforma Digitale Nazionale Dati (PDND)** is an Italian digital infrastructure designed to facilitate **data interoperability** and exchange between public administrations and private entities. The platform aims to simplify the sharing of public data by providing a secure, standardized, and centralized system for data integration, access, and management. PDND promotes digital transformation within the public sector by ensuring data is accessible, reliable, and reusable, enabling more efficient public services, enhancing transparency, and supporting **data-driven decision-making** for both government and citizens.
+
 ## Voucher
 Vouchers are simple JWT tokens. The implemented authentication flow is OAuth 2.0, which refers to **RFC6750** for the use of Bearer tokens and to **RFC7521** for client authorization via client assertion.
 
