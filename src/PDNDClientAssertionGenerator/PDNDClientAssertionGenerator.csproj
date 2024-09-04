@@ -4,7 +4,18 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Description>.NET Client Assertion Generator for PDND Service API </Description>
+    <PackageProjectUrl>https://github.com/engineering87/pdnd-client-assertion-generator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/engineering87/pdnd-client-assertion-generator</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.0.2" />

@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using PDNDClientAssertionGenerator.Interfaces;
+using PDNDClientAssertionGenerator.Models;
 
 namespace PDNDClientAssertionGenerator.Api.Controllers
 {
@@ -6,23 +8,25 @@ namespace PDNDClientAssertionGenerator.Api.Controllers
     [Route("[controller]")]
     public class ClientAssertionController : ControllerBase
     {
+        private readonly IClientAssertionGenerator _clientAssertionGenerator;
         private readonly ILogger<ClientAssertionController> _logger;
 
-        public ClientAssertionController(ILogger<ClientAssertionController> logger)
+        public ClientAssertionController(ILogger<ClientAssertionController> logger, IClientAssertionGenerator clientAssertionGenerator)
         {
             _logger = logger;
+            _clientAssertionGenerator = clientAssertionGenerator;
         }
 
         [HttpGet("GetClientAssertion", Name = "GetClientAssertion")]
-        public string GetClientAssertion()
+        public async Task<string> GetClientAssertionAsync()
         {
-            return string.Empty;
+            return await _clientAssertionGenerator.GetClientAssertionAsync();
         }
 
         [HttpGet("GetToken", Name = "GetToken")]
-        public string GetToken([FromQuery] string clientAssertion)
+        public async Task<PDNDTokenResponse> GetToken([FromQuery] string clientAssertion)
         {
-            return string.Empty;
+            return await _clientAssertionGenerator.GetToken(clientAssertion);
         }
     }
 }

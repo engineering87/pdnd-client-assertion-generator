@@ -1,3 +1,8 @@
+using Microsoft.Extensions.Configuration;
+using PDNDClientAssertionGenerator.Configuration;
+using PDNDClientAssertionGenerator.Interfaces;
+using PDNDClientAssertionGenerator.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +11,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var configuration = builder.Configuration;
+
+// Add configuration PDNDClientAssertionGenerator
+builder.Services.Configure<ClientAssertionConfig>(configuration.GetSection("ClientAssertionConfig"));
+builder.Services.AddSingleton<ClientAssertionConfig>();
+builder.Services.AddScoped<IOAuth2Service, OAuth2Service>();
+builder.Services.AddScoped<IClientAssertionGenerator, ClientAssertionGeneratorService>();
 
 var app = builder.Build();
 
