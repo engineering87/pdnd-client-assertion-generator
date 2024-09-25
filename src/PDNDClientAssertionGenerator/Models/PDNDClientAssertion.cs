@@ -1,4 +1,6 @@
-﻿namespace PDNDClientAssertionGenerator.Models
+﻿// (c) 2024 Francesco Del Re <francesco.delre.87@gmail.com>
+// This code is licensed under MIT license (see LICENSE.txt for details)
+namespace PDNDClientAssertionGenerator.Models
 {
     public class PDNDClientAssertion
     {
@@ -42,17 +44,17 @@
         /// <summary>
         /// Gets or sets the JWT identifier
         /// </summary>
-        public Guid TokenId { get; init; }
+        public required Guid TokenId { get; init; }
 
         /// <summary>
         /// Gets or sets the token creation date
         /// </summary>
-        public DateTime IssuedAt { get; init; }
+        public required DateTime IssuedAt { get; init; }
 
         /// <summary>
         /// Gets or sets the token expiration date
         /// </summary>
-        public DateTime Expiration { get; init; }
+        public required DateTime Expiration { get; init; }
 
         /// <summary>
         /// Gets or sets the client assertion
