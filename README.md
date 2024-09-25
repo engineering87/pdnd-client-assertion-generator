@@ -29,25 +29,24 @@ To properly set up and use the Client Assertion Generator in your ASP.NET Core a
 
 
 1. Configure Client Assertion Settings, an example below:
-```xml
-"ClientAssertionConfig": {
-  "ServerUrl": "",
-  "KeyId": "ZmYxZGE2YjQtMzY2Yy00NWI5LThjNGItMDJmYmQyZGIyMmZh",
-  "Algorithm": "RS256",
-  "Type": "at+jwt",
-  "ClientId": "9b361d49-33f4-4f1e-a88b-4e12661f2309",
-  "Issuer": "interop.pagopa.it",
-  "Subject": "9b361d49-33f4-4f1e-a88b-4e12661f2309",
-  "Audience": "https://erogatore.example/ente-example/v1",
-  "PurposeId": "1b361d49-33f4-4f1e-a88b-4e12661f2300",
-  "KeyPath": "/path/",
-  "Duration": "600"
-},
-```
+  ```xml
+  "ClientAssertionConfig": {
+    "ServerUrl": "",
+    "KeyId": "ZmYxZGE2YjQtMzY2Yy00NWI5LThjNGItMDJmYmQyZGIyMmZh",
+    "Algorithm": "RS256",
+    "Type": "at+jwt",
+    "ClientId": "9b361d49-33f4-4f1e-a88b-4e12661f2309",
+    "Issuer": "interop.pagopa.it",
+    "Subject": "9b361d49-33f4-4f1e-a88b-4e12661f2309",
+    "Audience": "https://erogatore.example/ente-example/v1",
+    "PurposeId": "1b361d49-33f4-4f1e-a88b-4e12661f2300",
+    "KeyPath": "/path/",
+    "Duration": "600"
+  },
+  ```
 
 read the configuration:
 
-=======
 1. Configure Client Assertion Settings:
   ```csharp
   builder.Services.Configure<ClientAssertionConfig>(configuration.GetSection("ClientAssertionConfig"));
