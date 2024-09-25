@@ -54,7 +54,7 @@ To properly set up and use the Client Assertion Generator in your ASP.NET Core a
 
 3. Register Services:
   ```csharp
-  builder.Services.AddScoped<ClientAssertionConfig>();
+  builder.Services.AddSingleton<ClientAssertionConfig>();
   builder.Services.AddScoped<IOAuth2Service, OAuth2Service>();
   builder.Services.AddScoped<IClientAssertionGenerator, ClientAssertionGeneratorService>();
   ```
