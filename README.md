@@ -7,6 +7,17 @@
 
 .NET implementation of **OAuth2** authentication for **PDND** service with client assertion generation.
 
+## Contents
+- [PDND](#pdnd)
+- [Voucher](#voucher)
+- [Requesting a Voucher](#requesting-a-voucher)
+- [How to Use the Client Assertion Generator](#how-to-use-the-client-assertion-generator)
+- [Licensee](#licensee)
+- [Contact](#contact)
+
+## PDND
+The **Piattaforma Digitale Nazionale Dati (PDND)** is an Italian digital infrastructure designed to facilitate **data interoperability** and exchange between public administrations and private entities. The platform aims to simplify the sharing of public data by providing a secure, standardized, and centralized system for data integration, access, and management. PDND promotes digital transformation within the public sector by ensuring data is accessible, reliable, and reusable, enabling more efficient public services, enhancing transparency, and supporting **data-driven decision-making** for both government and citizens.
+
 ## Voucher
 Vouchers are simple JWT tokens. The implemented authentication flow is OAuth 2.0, which refers to **RFC6750** for the use of Bearer tokens and to **RFC7521** for client authorization via client assertion.
 
@@ -16,20 +27,42 @@ To obtain a valid voucher, you must first upload at least one public key to an i
 ## How to Use the Client Assertion Generator
 To properly set up and use the Client Assertion Generator in your ASP.NET Core application, follow these steps:
 
+
+1. Configure Client Assertion Settings, an example below:
+```xml
+"ClientAssertionConfig": {
+  "ServerUrl": "",
+  "KeyId": "ZmYxZGE2YjQtMzY2Yy00NWI5LThjNGItMDJmYmQyZGIyMmZh",
+  "Algorithm": "RS256",
+  "Type": "at+jwt",
+  "ClientId": "9b361d49-33f4-4f1e-a88b-4e12661f2309",
+  "Issuer": "interop.pagopa.it",
+  "Subject": "9b361d49-33f4-4f1e-a88b-4e12661f2309",
+  "Audience": "https://erogatore.example/ente-example/v1",
+  "PurposeId": "1b361d49-33f4-4f1e-a88b-4e12661f2300",
+  "KeyPath": "/path/",
+  "Duration": "600"
+},
+```
+
+read the configuration:
+
+=======
 1. Configure Client Assertion Settings:
   ```csharp
   builder.Services.Configure<ClientAssertionConfig>(configuration.GetSection("ClientAssertionConfig"));
   ```
 
-2. Register Services::
+2. Register Services:
   ```csharp
-builder.Services.AddScoped<ClientAssertionConfig>();
-builder.Services.AddScoped<IOAuth2Service, OAuth2Service>();
-builder.Services.AddScoped<IClientAssertionGenerator, ClientAssertionGeneratorService>();
+  builder.Services.AddScoped<ClientAssertionConfig>();
+  builder.Services.AddScoped<IOAuth2Service, OAuth2Service>();
+  builder.Services.AddScoped<IClientAssertionGenerator, ClientAssertionGeneratorService>();
   ```
 
 Then you can use `ClientAssertionGeneratorService`, which provides the following methods:
 - `GetClientAssertionAsync`
+- `GetToken(clientAssertion)`
 - `GetToken`
 
 ## How to Contribute
