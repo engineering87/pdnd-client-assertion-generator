@@ -27,40 +27,43 @@ To obtain a valid voucher, you must first upload at least one public key to an i
 ## How to Use the Client Assertion Generator
 To properly set up and use the Client Assertion Generator in your ASP.NET Core application, follow these steps:
 
-1. Configure Client Assertion Settings, an example below:
 
-  ```xml
-  "ClientAssertionConfig": {
-    "ServerUrl": "",
-    "KeyId": "ZmYxZGE2YjQtMzY2Yy00NWI5LThjNGItMDJmYmQyZGIyMmZh",
-    "Algorithm": "RS256",
-    "Type": "at+jwt",
-    "ClientId": "9b361d49-33f4-4f1e-a88b-4e12661f2309",
-    "Issuer": "interop.pagopa.it",
-    "Subject": "9b361d49-33f4-4f1e-a88b-4e12661f2309",
-    "Audience": "https://erogatore.example/ente-example/v1",
-    "PurposeId": "1b361d49-33f4-4f1e-a88b-4e12661f2300",
-    "KeyPath": "/path/",
-    "Duration": "600"
-  },
-  ```
+1. Configure Client Assertion Settings, an example below:
+```xml
+"ClientAssertionConfig": {
+  "ServerUrl": "",
+  "KeyId": "ZmYxZGE2YjQtMzY2Yy00NWI5LThjNGItMDJmYmQyZGIyMmZh",
+  "Algorithm": "RS256",
+  "Type": "at+jwt",
+  "ClientId": "9b361d49-33f4-4f1e-a88b-4e12661f2309",
+  "Issuer": "interop.pagopa.it",
+  "Subject": "9b361d49-33f4-4f1e-a88b-4e12661f2309",
+  "Audience": "https://erogatore.example/ente-example/v1",
+  "PurposeId": "1b361d49-33f4-4f1e-a88b-4e12661f2300",
+  "KeyPath": "/path/",
+  "Duration": "600"
+},
+```
 
 read the configuration:
 
+=======
+1. Configure Client Assertion Settings:
   ```csharp
   builder.Services.Configure<ClientAssertionConfig>(configuration.GetSection("ClientAssertionConfig"));
   ```
 
 2. Register Services:
   ```csharp
-builder.Services.AddSingleton<ClientAssertionConfig>();
-builder.Services.AddScoped<IOAuth2Service, OAuth2Service>();
-builder.Services.AddScoped<IClientAssertionGenerator, ClientAssertionGeneratorService>();
+  builder.Services.AddScoped<ClientAssertionConfig>();
+  builder.Services.AddScoped<IOAuth2Service, OAuth2Service>();
+  builder.Services.AddScoped<IClientAssertionGenerator, ClientAssertionGeneratorService>();
   ```
 
 Then you can use `ClientAssertionGeneratorService`, which provides the following methods:
 - `GetClientAssertionAsync`
 - `GetToken(clientAssertion)`
+- `GetToken`
 
 ## How to Contribute
 Thank you for considering to help out with the source code!
