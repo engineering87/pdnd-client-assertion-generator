@@ -19,10 +19,13 @@
 The **Piattaforma Digitale Nazionale Dati (PDND)** is an Italian digital infrastructure designed to facilitate **data interoperability** and exchange between public administrations and private entities. The platform aims to simplify the sharing of public data by providing a secure, standardized, and centralized system for data integration, access, and management. PDND promotes digital transformation within the public sector by ensuring data is accessible, reliable, and reusable, enabling more efficient public services, enhancing transparency, and supporting **data-driven decision-making** for both government and citizens.
 
 ## Voucher
-Vouchers are simple JWT tokens. The implemented authentication flow is OAuth 2.0, which refers to **RFC6750** for the use of Bearer tokens and to **RFC7521** for client authorization via client assertion.
+Vouchers are simple JWT tokens. The implemented authentication flow is OAuth 2.0, which refers to [**RFC6750**](https://datatracker.ietf.org/doc/html/rfc6750) for the use of Bearer tokens and to [**RFC7521**](https://datatracker.ietf.org/doc/html/rfc7521) for client authorization via client assertion.
 
 ## Requesting a Voucher
 To obtain a valid voucher, you must first upload at least one public key to an interop API client. The first step is to create a valid client assertion and sign it with your private key (which must match the public key registered with the client on PDND Interoperabilità). The client assertion consists of a header and a payload.
+
+## Voucher Flow for Interoperability APIs
+The user requests a voucher. Once obtained, they include it as an authorization header in subsequent calls to the PDND Interoperability APIs.
 
 ## How to Use the Client Assertion Generator
 To properly set up and use the Client Assertion Generator in your ASP.NET Core application, follow these steps:
