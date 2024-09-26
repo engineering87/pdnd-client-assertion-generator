@@ -24,7 +24,7 @@ namespace PDNDClientAssertionGenerator.Services
         }
 
         // Asynchronously generates a client assertion JWT token.
-        public Task<string> GenerateClientAssertionAsync()
+        public async Task<string> GenerateClientAssertionAsync()
         {
             // Generate a unique token ID (JWT ID)
             Guid tokenId = Guid.NewGuid();
@@ -74,7 +74,7 @@ namespace PDNDClientAssertionGenerator.Services
             var tokenHandler = new JwtSecurityTokenHandler();
             string clientAssertion = tokenHandler.WriteToken(token);
 
-            return Task.FromResult(clientAssertion); // Return the generated token as a string.
+            return await Task.FromResult(clientAssertion); // Return the generated token as a string.
         }
 
         // Asynchronously requests an access token by sending the client assertion to the OAuth2 server.
