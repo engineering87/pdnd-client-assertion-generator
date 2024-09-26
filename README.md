@@ -65,7 +65,6 @@ To properly set up and use the Client Assertion Generator in your ASP.NET Core a
 Then you can use `ClientAssertionGeneratorService`, which provides the following methods:
 - `GetClientAssertionAsync`
 - `GetToken(clientAssertion)`
-- `GetToken`
 
 ## Testing the PDNDClientAssertionGenerator
 This project includes a test application, **PDNDClientAssertionGenerator.Api**, designed to help you test the software with your own configuration. This application acts as a sandbox where you can validate the behavior of the PDNDClientAssertionGenerator components.
