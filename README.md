@@ -1,6 +1,9 @@
 # PDND Client Assertion Generator
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Nuget](https://img.shields.io/nuget/v/PDNDClientAssertionGenerator?style=plastic)](https://www.nuget.org/packages/PDNDClientAssertionGenerator)
+![NuGet Downloads](https://img.shields.io/nuget/dt/PDNDClientAssertionGenerator)
+[![Build](https://github.com/engineering87/PDNDClientAssertionGenerator/actions/workflows/dotnet.yml/badge.svg)](https://github.com/engineering87/PDNDClientAssertionGenerator/actions/workflows/dotnet.yml)
 [![issues - pdnd-client-assertion-generator](https://img.shields.io/github/issues/engineering87/pdnd-client-assertion-generator)](https://github.com/engineering87/pdnd-client-assertion-generator/issues)
 [![Language - C#](https://img.shields.io/static/v1?label=Language&message=C%23&color=blueviolet)](https://dotnet.microsoft.com/it-it/languages/csharp)
 [![stars - pdnd-client-assertion-generator](https://img.shields.io/github/stars/engineering87/pdnd-client-assertion-generator?style=social)](https://github.com/engineering87/pdnd-client-assertion-generator)
