@@ -67,6 +67,20 @@ Then you can use `ClientAssertionGeneratorService`, which provides the following
 - `GetToken(clientAssertion)`
 - `GetToken`
 
+## Testing the PDNDClientAssertionGenerator
+This project includes a test application, **PDNDClientAssertionGenerator.Api**, designed to help you test the software with your own configuration. This application acts as a sandbox where you can validate the behavior of the PDNDClientAssertionGenerator components.
+
+### How to Use the Test Application:
+
+1. Configuration: Update the configuration settings in the `appsettings.json` file or through environment variables to match your specific use case and environment.
+
+2. Running the Test Application:
+    - Navigate to the PDNDClientAssertionGenerator.Api folder.
+    - Use the following command to run the application:  
+      `dotnet run --project src/PDNDClientAssertionGenerator.Api/PDNDClientAssertionGenerator.Api.csproj`
+  
+3. Testing Scenarios: Once the application is running, you can use various `GetClientAssertion` and `GetToken` to test the functionality of the software in different configurations.
+
 ## How to Contribute
 Thank you for considering to help out with the source code!
 If you'd like to contribute, please fork, fix, commit and send a pull request for the maintainers to review and merge into the main code base.
