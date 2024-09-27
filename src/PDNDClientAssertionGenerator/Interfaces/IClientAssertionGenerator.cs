@@ -7,6 +7,6 @@ namespace PDNDClientAssertionGenerator.Interfaces
     public interface IClientAssertionGenerator
     {
         Task<string> GetClientAssertionAsync();
-        Task<PDNDTokenResponse> GetToken(string clientAssertion);
+        Task<PDNDTokenResponse> GetTokenAsync(string clientAssertion);
     }
 }

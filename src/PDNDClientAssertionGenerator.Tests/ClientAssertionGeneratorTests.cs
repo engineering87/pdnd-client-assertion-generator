@@ -31,7 +31,7 @@ namespace PDNDClientAssertionGenerator.Tests
             var clientAssertion = "testClientAssertion";
 
             // Act
-            await clientAssertionGeneratorService.GetToken(clientAssertion);
+            await clientAssertionGeneratorService.GetTokenAsync(clientAssertion);
 
             // Assert
             oauth2ServiceMock.Verify(o => o.RequestAccessTokenAsync(clientAssertion), Times.Once);

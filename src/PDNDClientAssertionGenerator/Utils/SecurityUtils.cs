@@ -57,7 +57,7 @@ namespace PDNDClientAssertionGenerator.Utils
         /// </summary>
         /// <param name="pemContent">The PEM formatted string.</param>
         /// <returns>The base64 encoded key.</returns>
-        private static string ExtractBase64Key(string pemContent)
+        public static string ExtractBase64Key(string pemContent)
         {
             // Remove the header, footer, and any newlines or whitespaces
             return pemContent
@@ -65,6 +65,7 @@ namespace PDNDClientAssertionGenerator.Utils
                 .Replace("-----END RSA PRIVATE KEY-----", string.Empty)
                 .Replace("\n", string.Empty)
                 .Replace("\r", string.Empty)
+                .Replace(" ", string.Empty)
                 .Trim();
         }
     }

@@ -26,7 +26,7 @@ namespace PDNDClientAssertionGenerator.Services
 
         // Asynchronously requests an OAuth2 access token using the provided client assertion.
         // Delegates the actual token request to the OAuth2 service.
-        public async Task<PDNDTokenResponse> GetToken(string clientAssertion)
+        public async Task<PDNDTokenResponse> GetTokenAsync(string clientAssertion)
         {
             return await _oauth2Service.RequestAccessTokenAsync(clientAssertion);
         }

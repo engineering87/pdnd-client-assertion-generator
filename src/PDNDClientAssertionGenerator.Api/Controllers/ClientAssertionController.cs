@@ -28,7 +28,7 @@ namespace PDNDClientAssertionGenerator.Api.Controllers
         [HttpGet("GetToken", Name = "GetToken")]
         public async Task<PDNDTokenResponse> GetToken([FromQuery] string clientAssertion)
         {
-            return await _clientAssertionGenerator.GetToken(clientAssertion);
+            return await _clientAssertionGenerator.GetTokenAsync(clientAssertion);
         }
     }
 }
