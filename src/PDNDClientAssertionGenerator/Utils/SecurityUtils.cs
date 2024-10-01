@@ -68,5 +68,32 @@ namespace PDNDClientAssertionGenerator.Utils
                 .Replace(" ", string.Empty)
                 .Trim();
         }
+
+        /// <summary>
+        /// Retrieves and imports RSA security parameters from the specified key path.
+        /// </summary>
+        /// <param name="keyPath">The file path to the RSA private key.</param>
+        /// <returns>An instance of RSA with the imported key parameters.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if there is an error retrieving or importing the RSA parameters.</exception>
+        public static RSA GetRsaFromKeyPath(string keyPath)
+        {
+            try
+            {
+                // Retrieve RSA security parameters from the specified key path.
+                RSAParameters rsaParams = GetSecurityParameters(keyPath);
+
+                // Create a new instance of RSA and import the retrieved key parameters.
+                var rsa = RSA.Create();
+                rsa.ImportParameters(rsaParams);
+
+                // Return the configured RSA instance.
+                return rsa;
+            }
+            catch (Exception ex)
+            {
+                // If there is an error during the retrieval or import of the key, throw an InvalidOperationException.
+                throw new InvalidOperationException("Failed to retrieve or import RSA security parameters.", ex);
+            }
+        }
     }
 }

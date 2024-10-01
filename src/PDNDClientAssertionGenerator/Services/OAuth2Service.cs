@@ -54,10 +54,7 @@ namespace PDNDClientAssertionGenerator.Services
             };
 
             // Create signing credentials using RSA for signing the token.
-            RSAParameters rsaParams = SecurityUtils.GetSecurityParameters(_config.KeyPath);
-            using var rsa = RSA.Create();
-            rsa.ImportParameters(rsaParams);
-
+            using var rsa = SecurityUtils.GetRsaFromKeyPath(_config.KeyPath);
             var rsaSecurityKey = new RsaSecurityKey(rsa);
             var signingCredentials = new SigningCredentials(rsaSecurityKey, SecurityAlgorithms.RsaSha256)
             {
@@ -72,7 +69,16 @@ namespace PDNDClientAssertionGenerator.Services
 
             // Use JwtSecurityTokenHandler to convert the token into a string.
             var tokenHandler = new JwtSecurityTokenHandler();
-            string clientAssertion = tokenHandler.WriteToken(token);
+            string clientAssertion = string.Empty;
+
+            try
+            {
+                clientAssertion = tokenHandler.WriteToken(token);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Failed to generate JWT token.", ex);
+            }
 
             return await Task.FromResult(clientAssertion); // Return the generated token as a string.
         }
