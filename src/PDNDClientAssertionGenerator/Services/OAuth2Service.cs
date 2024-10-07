@@ -1,5 +1,6 @@
 ﻿// (c) 2024 Francesco Del Re <francesco.delre.87@gmail.com>
 // This code is licensed under MIT license (see LICENSE.txt for details)
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using PDNDClientAssertionGenerator.Configuration;
 using PDNDClientAssertionGenerator.Interfaces;
@@ -8,7 +9,6 @@ using PDNDClientAssertionGenerator.Utils;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http.Headers;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text.Json;
 
 namespace PDNDClientAssertionGenerator.Services
@@ -18,9 +18,9 @@ namespace PDNDClientAssertionGenerator.Services
         private readonly ClientAssertionConfig _config;
 
         // Constructor for OAuth2Service, takes a configuration object.
-        public OAuth2Service(ClientAssertionConfig config)
+        public OAuth2Service(IOptions<ClientAssertionConfig> config)
         {
-            _config = config ?? throw new ArgumentNullException(nameof(config));
+            _config = config.Value ?? throw new ArgumentNullException(nameof(config));
         }
 
         // Asynchronously generates a client assertion JWT token.
