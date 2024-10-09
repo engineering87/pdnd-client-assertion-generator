@@ -19,7 +19,7 @@
 - [Contact](#contact)
 
 ## PDND
-The **Piattaforma Digitale Nazionale Dati (PDND)** is an Italian digital infrastructure designed to facilitate **data interoperability** and exchange between public administrations and private entities. The platform aims to simplify the sharing of public data by providing a secure, standardized, and centralized system for data integration, access, and management. PDND promotes digital transformation within the public sector by ensuring data is accessible, reliable, and reusable, enabling more efficient public services, enhancing transparency, and supporting **data-driven decision-making** for both government and citizens.
+The **[Piattaforma Digitale Nazionale Dati (PDND)](https://developers.italia.it/it/pdnd/)** is an Italian digital infrastructure designed to facilitate **data interoperability** and exchange between public administrations and private entities. The platform aims to simplify the sharing of public data by providing a secure, standardized, and centralized system for data integration, access, and management. PDND promotes digital transformation within the public sector by ensuring data is accessible, reliable, and reusable, enabling more efficient public services, enhancing transparency, and supporting **data-driven decision-making** for both government and citizens.
 
 ## Voucher
 Vouchers are simple JWT tokens. The implemented authentication flow is OAuth 2.0, which refers to [**RFC6750**](https://datatracker.ietf.org/doc/html/rfc6750) for the use of Bearer tokens and to [**RFC7521**](https://datatracker.ietf.org/doc/html/rfc7521) for client authorization via client assertion.
