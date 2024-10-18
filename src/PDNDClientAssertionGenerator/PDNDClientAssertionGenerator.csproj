@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Description>.NET Client Assertion Generator for PDND Service API </Description>
-    <PackageProjectUrl>https://github.com/engineering87/pdnd-client-assertion-generator</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/italia/pdnd-client-assertion-generator</PackageProjectUrl>
     <RepositoryUrl>https://github.com/engineering87/pdnd-client-assertion-generator</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
