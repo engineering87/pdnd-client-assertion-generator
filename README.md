@@ -10,6 +10,8 @@
 
 .NET implementation of **OAuth2** authentication for **PDND** service with client assertion generation.
 
+**This repository has been migrated to the [Developers Italia](https://github.com/italia) community [PDND Client Assertion Generator](https://github.com/italia/pdnd-client-assertion-generator)**.
+
 ## Contents
 - [PDND](#pdnd)
 - [Voucher](#voucher)
